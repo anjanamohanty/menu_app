@@ -4,7 +4,8 @@ class DishesController < ApplicationController
   # GET /dishes
   # GET /dishes.json
   def index
-    @dishes = Dish.all
+    @menu = Dish.get_dishes_by_course
+    @courses = Course.all.map{|c| [c.id, c.name]}
   end
 
   # GET /dishes/1
